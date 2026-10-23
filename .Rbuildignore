@@ -1,0 +1,12 @@
+^\.github$
+^\.gitignore$
+^.*\.Rproj$
+^\.Rproj\.user$
+^LICENSE\.md$
+^CITATION\.cff$
+^node_modules$
+^html-ts-app$
+^regional-workforce$
+^browser-results$
+^browser-fixtures$
+^tsHtmlApp_.*\.(tar\.gz|zip)$

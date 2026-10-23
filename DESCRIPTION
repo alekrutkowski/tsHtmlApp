@@ -1,0 +1,25 @@
+Package: tsHtmlApp
+Type: Package
+Title: Generate Standalone HTML Time-Series Explorers
+Version: 0.1.0
+Authors@R: person("Alek", "Rutkowski", email = "alek.rutkowski@gmail.com", role = c("aut", "cre", "cph"))
+Description: Generates a single self-contained HTML application from a
+    data.table containing time-series data. Embedded JavaScript provides
+    categorical filtering, optional cascading choices, interactive Plotly
+    charts, time-window selection, index rebasing, resizable chart cards,
+    and data downloads. Generated applications work offline in a browser
+    without an R session, Shiny, or a server.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Depends:
+    R (>= 4.0.0)
+Imports:
+    data.table,
+    jsonlite,
+    magrittr
+Suggests:
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+NeedsCompilation: no

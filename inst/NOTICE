@@ -1,0 +1,62 @@
+Attributions and dependency acknowledgements
+============================================
+
+tsHtmlApp is Copyright (c) 2026 Alek Rutkowski and is distributed under
+the MIT license. Contact: alek.rutkowski@gmail.com.
+
+Original project
+----------------
+The public API, data validation and time-ordering logic, application behavior
+and synthetic regional-workforce example data are adapted from tsShinyApp
+0.1.0, Copyright (c) 2026 Alek Rutkowski, MIT license.
+https://github.com/alekrutkowski/tsShinyApp
+The original copyright and MIT terms are retained in LICENSE and LICENSE.md.
+
+Bundled browser library
+-----------------------
+Plotly.js gl2d bundle 4.1.2, Plotly Technologies Inc. and contributors, MIT.
+https://github.com/plotly/plotly.js
+https://github.com/plotly/plotly.js/blob/v4.1.2/LICENSE
+The unmodified distributed library is in vendor/plotly-gl2d.min.js.
+Its complete upstream license is in vendor/LICENSE-plotly.txt and the
+distribution provenance is in vendor/PROVENANCE.json. Generated HTML files
+embed the library and its license. Upstream bundled notices are preserved.
+Additional full notices for 91 bundled dependency-version instances (90
+package names) are supplied in vendor/THIRD-PARTY-LICENSES.txt and embedded
+in generated HTML. This includes the upstream MIT, BSD-3-Clause, ISC and
+Zlib terms and copyright/author notices. The module inventory, exact release
+versions, verified npm integrity hashes and license-text sources are recorded
+in vendor/THIRD-PARTY-PROVENANCE.json.
+
+R dependencies used while generating an HTML file
+-------------------------------------------------
+* data.table, data.table authors and contributors, MPL-2.0 | file LICENSE.
+  https://r-datatable.com/
+  https://github.com/Rdatatable/data.table
+* jsonlite, Jeroen Ooms and contributors, MIT + file LICENSE.
+  https://jeroen.r-universe.dev/jsonlite/doc/manual.html
+  https://github.com/jeroen/jsonlite
+* magrittr, Stefan Milton Bache, Hadley Wickham, Lionel Henry and contributors,
+  MIT + file LICENSE.
+  https://magrittr.tidyverse.org/LICENSE.html
+
+Development and testing
+-----------------------
+* testthat, Hadley Wickham and contributors, MIT + file LICENSE.
+  https://testthat.r-lib.org/LICENSE.html
+* Node.js and its built-in test runner, Node.js contributors, MIT with
+  third-party components covered by their respective licenses.
+  https://github.com/nodejs/node/blob/main/LICENSE
+* Playwright, Microsoft and contributors, Apache-2.0, used by the optional
+  offline browser smoke test. Chromium retains its own licenses.
+  https://github.com/microsoft/playwright/blob/main/LICENSE
+  https://www.chromium.org/chromium-projects/
+* r-lib/actions, R community contributors, MIT.
+  https://github.com/r-lib/actions
+* GitHub actions/checkout and actions/setup-node, MIT.
+  https://github.com/actions/checkout
+  https://github.com/actions/setup-node
+
+R dependencies and development tools are not copied into generated HTML.
+Their licenses apply independently. No endorsement by their authors or
+maintainers is implied.

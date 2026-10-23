@@ -1,0 +1,7 @@
+{
+  "name": "plotly.js-gl2d-dist-min",
+  "version": "4.1.2",
+  "url": "https://cdn.plot.ly/plotly-gl2d-4.1.2.min.js",
+  "license_url": "https://raw.githubusercontent.com/plotly/plotly.js/v4.1.2/LICENSE",
+  "sha256": "f1b461f124969cca3dc958ef48fda19a000859307743c1f6efbbbba7e24a3d7a"
+}

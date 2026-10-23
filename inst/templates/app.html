@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval'; style-src 'unsafe-inline'; img-src data: blob:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>@@TITLE@@</title>
+  <style>@@CSS@@</style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to charts</a>
+  <header class="app-header">
+    <div class="heading-group">
+      <button type="button" id="toggle-sidebar" class="icon-button sidebar-toggle" aria-label="Toggle filters" aria-controls="sidebar" aria-expanded="true" title="Show or hide filters">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M9 4v16M5.5 8h1M5.5 11h1"/></svg>
+      </button>
+      <div class="app-mark" aria-hidden="true"><svg viewBox="0 0 28 28" fill="none"><path d="M6 6v16h17M8 17l5-5 4 2 5-8"/><circle cx="13" cy="12" r="1.5"/><circle cx="17" cy="14" r="1.5"/></svg></div>
+      <div class="heading-text"><h1 id="app-title">@@TITLE@@</h1><p>Filter, compare, index and zoom across time</p></div>
+    </div>
+    <div class="header-actions"><span class="offline-badge"><span></span>Available offline</span><button type="button" class="button button-quiet" id="reset-all">Reset view</button></div>
+  </header>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar" aria-label="Explorer controls">
+      <section class="sidebar-section">
+        <div class="section-heading"><h2>Filters</h2><span class="small-badge" id="filter-mode"></span></div>
+        <p class="note" id="filter-note"></p>
+        <div id="category-filters"></div>
+      </section>
+      <section class="sidebar-section">
+        <h2>Time window</h2>
+        <div class="two-column-controls">
+          <label class="field-label" for="time-from">From<select id="time-from" class="select-field"></select></label>
+          <label class="field-label" for="time-to">To<select id="time-to" class="select-field"></select></label>
+        </div>
+        <button type="button" id="full-period" class="text-button">Use full time range</button>
+      </section>
+      <section class="sidebar-section">
+        <h2>Display</h2>
+        <label class="switch-row" for="indexed"><span>Show as index</span><input id="indexed" type="checkbox" role="switch"><span class="switch-visual" aria-hidden="true"></span></label>
+        <div id="index-options" hidden>
+          <label class="field-label" for="base-time">Base time = 100<select id="base-time" class="select-field"></select></label>
+          <p class="note">Each series is divided by its value at this period. Missing or zero base values leave that series blank.</p>
+        </div>
+        <label class="switch-row" for="markers"><span>Show point markers</span><input id="markers" type="checkbox" role="switch"><span class="switch-visual" aria-hidden="true"></span></label>
+      </section>
+      <section class="sidebar-section selection-section">
+        <h2>Your selection</h2>
+        <div class="selection-box" id="selection-status" aria-live="polite"></div>
+        <p class="note missing-time-note" id="missing-time-note" hidden></p>
+      </section>
+      <section class="sidebar-section download-section">
+        <h2>Download data</h2>
+        <button type="button" id="download-csv" class="button button-primary wide">Filtered data · CSV</button>
+        <p class="note">All matching series in the time window, with original values.</p>
+        <button type="button" id="download-displayed-csv" class="button button-secondary wide">Displayed series · CSV</button>
+        <button type="button" id="download-rds" class="button button-secondary wide">Original data · RDS</button>
+      </section>
+      <footer class="sidebar-footer"><span>Made with tsHtmlApp</span><button class="text-button" type="button" id="show-about">About &amp; licenses</button></footer>
+    </aside>
+    <main id="main" class="main-content" tabindex="-1">
+      <div class="series-warning" id="series-warning" role="status" aria-live="polite" hidden></div>
+      <div class="workspace-heading"><div><p class="eyebrow">Time-series explorer</p><h2 id="workspace-title">Explore your measures</h2></div><span class="measure-count" id="measure-count"></span></div>
+      <div class="summary-strip" id="summary-strip" aria-live="polite"></div>
+      <div id="charts" class="charts"></div>
+      <p class="workspace-footnote">Drag a chart to zoom. Double-click to reset. Select a legend item to show or hide a series.</p>
+    </main>
+  </div>
+  <div class="busy-overlay is-active" id="busy" role="status" aria-live="polite" aria-hidden="false"><div class="busy-card"><div class="spinner" aria-hidden="true"></div><span id="busy-text">Opening your explorer…</span></div></div>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <div class="fatal-error" id="fatal-error" role="alert" hidden><h2>The explorer could not start</h2><p id="fatal-error-message"></p><p>Open this HTML file in a current version of Chrome, Edge or Firefox.</p></div>
+  <dialog id="about-dialog" class="about-dialog"><div class="dialog-heading"><h2>About this explorer</h2><button type="button" class="icon-button" id="close-about" aria-label="Close about dialog">✕</button></div><p>This file contains the complete interactive app and its data. Charts, filters and downloads work in your browser, including when you are offline.</p><p><strong>CSV</strong> contains all rows matching the filters and time window, with original measure values. <strong>RDS</strong> restores the original R data object, including its column types.</p><details><summary>Open-source acknowledgements and licenses</summary><pre>@@LICENSES@@</pre></details><p class="note">Generated with tsHtmlApp.</p></dialog>
+  <noscript><div class="noscript-message">Enable JavaScript to use this interactive explorer. All code and data are included in this file.</div><style>.busy-overlay{display:none}</style></noscript>
+  <script type="application/json" id="tsapp-data">@@PAYLOAD@@</script>
+  <script>@@PLOTLY@@</script>
+  <script>@@ENGINE@@</script>
+  <script>@@APP@@</script>
+</body>
+</html>

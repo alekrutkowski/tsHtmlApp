@@ -1,0 +1,12 @@
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+*.Rcheck/
+tsHtmlApp_*.tar.gz
+tsHtmlApp_*.zip
+node_modules/
+html-ts-app/
+regional-workforce/
+browser-results/
+browser-fixtures/
